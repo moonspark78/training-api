@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "./ApiUsers.css"
 
 export const ApiUsers = () => {
     const [UserData, setUserData] = useState([])
@@ -14,17 +15,18 @@ export const ApiUsers = () => {
 
 
   return (
-    <div>
+    <div className="ApiUsers">
         <h1>ApiUsers</h1>
-        
-        {
-            UserData.map((user => (
-                <>
-                    <p key={user.id}>{user.name}</p>
-                    <p>{user.email}</p>
-                </>
-            )))
-        }
+        <div className='Card'>
+            {
+                UserData.map((user => (
+                    <div key={user.id}>
+                        <p>{user.name}</p>
+                        <p>{user.email}</p>
+                    </div>
+                )))
+            }
+        </div>
     </div>
   )
 }
