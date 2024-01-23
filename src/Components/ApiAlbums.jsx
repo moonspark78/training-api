@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "./ApiAlbums.css"
 
 export const ApiAlbums = () => {
     const [comments, setComments] = useState([]);
@@ -17,13 +18,15 @@ export const ApiAlbums = () => {
 
 
   return (
-    <div>
+    <div className='apiAlbums'>
         <h2>ApiAlbums</h2>
-        {
-            comments.map((comment) =>(
-                <p key={comment.id}>{comment.title}</p>
-            ))
-        }
+        <div className='albumsCard'>
+            {
+                comments.map((comment) =>(
+                    <p key={comment.id}>{comment.title}</p>
+                ))
+            }
+        </div>
     </div>
   )
 }
