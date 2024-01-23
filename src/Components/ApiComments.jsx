@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "./ApiComments.css"
 
 export const ApiComments = () => {
     const [commentsData, setCommentsData] = useState([]);
@@ -14,13 +15,18 @@ export const ApiComments = () => {
     },[])
 
   return (
-    <div>
+    <div className='ApiComments'>
         <h1>ApiComments</h1>
+        <div className='commentsCard'>
         {
             commentsData.map((comment => (
-                <p>{commentsData.name}</p>
+                <div key={comment.id}>
+                    <p>{comment.name}</p>
+                    <p>{comment.email}</p>
+                </div>
             )))
         }
+        </div>
     </div>
   )
 }
