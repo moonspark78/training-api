@@ -1,3 +1,19 @@
 .ApiComments{
     text-align: center;
 }
+
+.commentsCard{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 10px;
+}
+
+.commentsCard div{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 10px;
+    padding: 10px;
+}
