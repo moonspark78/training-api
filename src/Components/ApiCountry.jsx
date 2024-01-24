@@ -21,8 +21,8 @@ export const ApiCountry = () => {
         <div className='countryCard'>
             {
             
-                countriesData.map((countrieData) => (
-                    <p>{countrieData.name.common}</p>
+                countriesData.map((countrieData, index) => (
+                    <p key={index}>{countrieData.name.common}</p>
                 ))
             }
         </div>
