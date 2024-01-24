@@ -23,7 +23,9 @@ export const ApiAlbums = () => {
         <div className='albumsCard'>
             {
                 comments.map((comment) =>(
-                    <p key={comment.id}>{comment.title}</p>
+                    <div key={comment.id}>
+                        <p>{comment.title}</p>
+                    </div>
                 ))
             }
         </div>
