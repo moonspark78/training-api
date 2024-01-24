@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "./ApiCountry.css"
 
 export const ApiCountry = () => {
     const [countriesData, setCounriesData]= useState([]);
@@ -15,13 +16,16 @@ export const ApiCountry = () => {
 
 
   return (
-    <div>
+    <div className='country'>
         <h3 style={{textDecoration: "underline", color: "blue"}}>ApiCountry</h3>
-         {
-            countriesData.map((countrieData) => (
-                <p>{countrieData.name.common}</p>
-            ))
-         }
+        <div className='countryCard'>
+            {
+            
+                countriesData.map((countrieData) => (
+                    <p>{countrieData.name.common}</p>
+                ))
+            }
+        </div>
     </div>
   )
 }
