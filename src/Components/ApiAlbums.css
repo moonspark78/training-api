@@ -16,3 +16,8 @@
     padding: 7px;
     background-color: rgb(72, 72, 192);
 }
+
+.active{
+    color: rgb(238, 174, 35);
+    font-size: 24px;
+}
