@@ -3,6 +3,14 @@ import "./ApiCountry.css"
 
 export const ApiCountry = () => {
     const [countriesData, setCounriesData]= useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [countryPerPage, setCountyPerPage] = useState(10);
+
+    const numTotalOfPages = Math.ceil(countriesData.length / countryPerPage)
+    const indexOfLastCountry = currentPage * countryPerPage;
+    const indexOfFirstCountry = indexOfLastCountry - countryPerPage;
+
+    
 
     useEffect(() =>{
         const fetchData = async () =>{
@@ -23,7 +31,7 @@ export const ApiCountry = () => {
             
                 countriesData.map((countrieData, index) => (
                     <div key={index}>
-                        <p>{countrieData.name.common}</p>
+                        <p id='bold'>{countrieData.name.common}</p>
                         <p>{countrieData.capital}</p>
                         <img src={countrieData.flags.png} alt='flagOfCountry' style={{width:"95px", height:"70px"}}/>
                     </div>
