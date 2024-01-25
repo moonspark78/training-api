@@ -25,6 +25,7 @@ export const ApiCountry = () => {
                     <div key={index}>
                         <p>{countrieData.name.common}</p>
                         <p>{countrieData.capital}</p>
+                        <img src={countrieData.flags.png} alt='flagOfCountry' style={{width:"95px", height:"70px"}}/>
                     </div>
                 ))
             }
