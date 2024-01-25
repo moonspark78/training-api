@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import "./ApiCountry.css"
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 export const ApiCountry = () => {
     const [countriesData, setCounriesData]= useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [countryPerPage, setCountyPerPage] = useState(10);
 
-    const numTotalOfPages = Math.ceil(countriesData.length / countryPerPage)
+    const numTotalOfPages = Math.ceil(countriesData.length / countryPerPage);
     const indexOfLastCountry = currentPage * countryPerPage;
     const indexOfFirstCountry = indexOfLastCountry - countryPerPage;
 
-    
+    const pages = [...Array(numTotalOfPages +1).keys()].slice(1);
+    const visibleCountries= countriesData.slice(indexOfFirstCountry, indexOfLastCountry)
+
+    const prevPageHandler = () =>{};
+    const nextPageHandler = () =>{};
 
     useEffect(() =>{
         const fetchData = async () =>{
@@ -29,7 +35,7 @@ export const ApiCountry = () => {
         <div className='countryCard'>
             {
             
-                countriesData.map((countrieData, index) => (
+                visibleCountries.map((countrieData, index) => (
                     <div key={index}>
                         <p id='bold'>{countrieData.name.common}</p>
                         <p>{countrieData.capital}</p>
@@ -37,6 +43,22 @@ export const ApiCountry = () => {
                     </div>
                 ))
             }
+        </div>
+
+        <div className='pages'>
+          <FaArrowLeft style={{marginRight:"7px"}}/>
+            {
+                pages.map((page) =>(
+                    <span
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`${currentPage === page ? "active" : ''}`}
+                    >
+                        {`${page }   |  `}
+                    </span>
+                ))
+            }
+          <FaArrowRight style={{marginLeft:"7px"}}/>
         </div>
     </div>
   )
