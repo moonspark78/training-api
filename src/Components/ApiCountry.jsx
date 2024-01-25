@@ -22,7 +22,10 @@ export const ApiCountry = () => {
             {
             
                 countriesData.map((countrieData, index) => (
-                    <p key={index}>{countrieData.name.common}</p>
+                    <div key={index}>
+                        <p>{countrieData.name.common}</p>
+                        <p>{countrieData.capital}</p>
+                    </div>
                 ))
             }
         </div>
