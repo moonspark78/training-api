@@ -49,7 +49,7 @@ export const ApiCountry = () => {
             {
             
                 visibleCountries.map((countrieData, index) => (
-                    <Link to={`/detail/${countrieData.name.common}`} key={index} state={{ countrieData }}>
+                    <Link to={`/country/${index}`} key={index} >
                     <div>
                         <p id='bold'>{countrieData.name.common}</p>
                         <p>{countrieData.capital}</p>

@@ -11,8 +11,8 @@ function App() {
     <div className="App">
     <Router>
       <Routes>
-        <Route path='/' element={ <ApiCountry/>}/>
-        <Route path="/detail/:index" element={<ApiCountryCardDetail />} />
+        <Route path='/' element={ <ApiCountry />}/>
+        <Route path="/detail/:countryIndex" element={<ApiCountryCardDetail />} />
       </Routes>
     </Router>
       {/* <ApiUsers/> */}
