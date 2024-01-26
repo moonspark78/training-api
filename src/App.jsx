@@ -4,6 +4,7 @@ import {ApiUsers} from "./Components/ApiUsers"
 import {ApiComments} from "./Components/ApiComments"
 import {ApiAlbums} from "./Components/ApiAlbums"
 import {ApiCountry} from "./Components/ApiCountry"
+import {ApiCountryCardDetail} from "./Components/ApiCountryCardDetail"
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={ <ApiCountry/>}/>
-        <Route/>
+        <Route path="/detail/:index" element={<ApiCountryCardDetail />} />
       </Routes>
     </Router>
       {/* <ApiUsers/> */}

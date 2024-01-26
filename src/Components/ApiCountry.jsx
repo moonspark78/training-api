@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./ApiCountry.css"
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export const ApiCountry = () => {
     const [countriesData, setCounriesData]= useState([]);
@@ -48,11 +49,13 @@ export const ApiCountry = () => {
             {
             
                 visibleCountries.map((countrieData, index) => (
-                    <div key={index}>
+                    <Link to={`/detail/${countrieData.name.common}`} key={index} state={{ countrieData }}>
+                    <div>
                         <p id='bold'>{countrieData.name.common}</p>
                         <p>{countrieData.capital}</p>
                         <img src={countrieData.flags.png} alt='flagOfCountry' style={{width:"95px", height:"70px"}}/>
                     </div>
+                    </Link>
                 ))
             }
         </div>
