@@ -15,8 +15,20 @@ export const ApiCountry = () => {
     const pages = [...Array(numTotalOfPages +1).keys()].slice(1);
     const visibleCountries= countriesData.slice(indexOfFirstCountry, indexOfLastCountry)
 
-    const prevPageHandler = () =>{};
-    const nextPageHandler = () =>{};
+    const prevPageHandler = () =>{
+        if (currentPage === 1) {
+            return ""
+        } else {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+    const nextPageHandler = () =>{
+        if (currentPage === 25) {
+            
+        } else {
+            setCurrentPage(currentPage + 1);
+        }
+    };
 
     useEffect(() =>{
         const fetchData = async () =>{
@@ -46,7 +58,7 @@ export const ApiCountry = () => {
         </div>
 
         <div className='pages'>
-          <FaArrowLeft style={{marginRight:"7px"}}/>
+          <FaArrowLeft style={{marginRight:"7px"}} onClick={prevPageHandler}/>
             {
                 pages.map((page) =>(
                     <span
@@ -58,7 +70,7 @@ export const ApiCountry = () => {
                     </span>
                 ))
             }
-          <FaArrowRight style={{marginLeft:"7px"}}/>
+          <FaArrowRight style={{marginLeft:"7px"}} onClick={nextPageHandler}/>
         </div>
     </div>
   )
