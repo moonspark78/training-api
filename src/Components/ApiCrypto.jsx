@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import "./ApiCrypto.css"
 
 export const ApiCrypto = () => {
     const [cryptoData, setCryptoData] = useState([]);
@@ -17,16 +18,18 @@ export const ApiCrypto = () => {
 
 
   return (
-    <div>
+    <div className='ApiCrypto'>
         <h3 style={{textDecoration:"underline", color:"red"}}>ApiCrypto</h3>
+        <div className='ApiCryptoCard'>
         {
             cryptoData.map(crypto => (
-                <>
+                <div>
                     <p>{crypto.name}</p>
-                    <a href={crypto.explorer}>Info Sur la Crypto</a>
-                </>
+                    <a href={crypto.explorer} target='blank'>Info Sur l' {crypto.name}</a>
+                </div>
             ))
         }
+        </div>
     </div>
   )
 }
